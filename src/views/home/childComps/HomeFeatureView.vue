@@ -1,6 +1,6 @@
 <template>
   <div class="feature">
-    <img src="~assets/img/home/recommend_bg.jpg" alt="">
+    <img src="~assets/img/home/recommend_bg.png" alt="">
   </div>
 </template>
 
