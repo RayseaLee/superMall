@@ -1,7 +1,7 @@
 <template>
-  <div class="goods-item">
+  <div class="goods-item" @click="goodsItemClick">
     <div class="goods-info">
-      <img :src="goodsItem.show.img" alt="" @load="ImageLoad">
+      <img :src="showImage" alt="" @load="ImageLoad">
       <p class="title">{{goodsItem.title}}</p>
       <div>
         <span class="price"><span class="icon">￥</span>{{goodsItem.price}}</span>
@@ -23,10 +23,26 @@
         }
       }
     },
+    computed: {
+      showImage() {
+        return this.goodsItem.image || this.goodsItem.show.img
+      }
+    },
     methods: {
       //better-scroll中的bug，现可用observe-image
       ImageLoad() {
         this.$bus.$emit('itemImageLoad')
+      },
+      getId() {
+        return this.goodsItem.iid || this.goodsItem.item_id
+      },
+      goodsItemClick() {
+        this.$router.push({
+          path: 'detail',
+          query: {
+            iid: this.getId(),
+          }
+        })
       }
     }
   }

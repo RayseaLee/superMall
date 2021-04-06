@@ -107,9 +107,6 @@
 
 <script>
   import BScroll from "better-scroll";
-  import Pullup from '@better-scroll/pull-up'
-
-  BScroll.use(Pullup)
 
   export default {
     name: "Category",

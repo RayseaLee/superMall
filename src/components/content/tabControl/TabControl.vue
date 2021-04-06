@@ -16,7 +16,7 @@
     props: {
       titles:{
         type: Array
-      }
+      },
     },
     data() {
       return {

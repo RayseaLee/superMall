@@ -26,7 +26,6 @@
 <script>
   import TabBar from "components/common/tabbar/TabBar";
   import TabBarItem from "components/common/tabbar/TabBarItem";
-  require('common/iconfont.js');
   export default {
     name: "MainTabBar",
     components: {
