@@ -25,7 +25,7 @@
     },
     computed: {
       showImage() {
-        return this.goodsItem.image || this.goodsItem.show.img
+        return ( this.goodsItem.image || this.goodsItem.img || this.goodsItem.show.img )
       }
     },
     methods: {
@@ -34,15 +34,17 @@
         this.$bus.$emit('itemImageLoad')
       },
       getId() {
-        return this.goodsItem.iid || this.goodsItem.item_id
+        return this.goodsItem.iid
       },
       goodsItemClick() {
-        this.$router.push({
-          path: 'detail',
-          query: {
-            iid: this.getId(),
-          }
-        })
+        if(this.getId()) {
+          this.$router.push({
+            path: 'detail',
+            query: {
+              iid: this.getId(),
+            }
+          })
+        }
       }
     }
   }

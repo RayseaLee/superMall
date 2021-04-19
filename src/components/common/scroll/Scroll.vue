@@ -20,7 +20,24 @@
       pullUpLoad: {
         type: Boolean,
         default: false
-      }
+      },
+      bounceTop :{
+        type: Boolean,
+        default: true
+      },
+      bounceBottom :{
+        type: Boolean,
+        default: true
+      },
+      bounceLeft :{
+        type: Boolean,
+        default: true
+      },
+      bounceRight :{
+        type: Boolean,
+        default: true
+      },
+
     },
     data() {
       return {
@@ -33,7 +50,20 @@
         //动态重新计算BetterScroll的容器大小
         click: true,
         probeType: this.probeType,
-        pullUpLoad: this.pullUpLoad
+        pullUpLoad: this.pullUpLoad,
+        scrollY: true,
+        scrollbar: true,
+        momentum: true,
+        observeDOM: true,
+        observeImage: true,
+        resizePolling: 60,
+        HWCompositing: true,
+        bounce: {
+          top: this.bounceTop,
+          bottom: this.bounceBottom,
+          left: this.bounceLeft,
+          right: this.bounceRight,
+        }
       })
       //监听滚动事件
       this.scroll.on('scroll', (position) => {

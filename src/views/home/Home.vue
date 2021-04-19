@@ -3,7 +3,7 @@
     <nav-bar class="home-nav">
       <div slot="center">购物街</div>
     </nav-bar>
-    <tab-control ref="tabControl"
+    <tab-control ref="tabControl1"
                  :titles="['流行', '新款', '精选']"
                  @tabClick="tabClick"
                  v-show="isTabFixed"
@@ -15,7 +15,7 @@
             @scroll="contentScroll"
             @pullingUp="pullingUp">
       <home-swiper :banners="banners" @swiperImageLoad="swiperImageLoad"/>
-      <recommend-view :recommends="recommends"/>
+      <recommend-view :recommends="recommends" @RecommendImageLoad="RecommendImageLoad"/>
       <home-feature-view/>
       <tab-control ref="tabControl2"
                    :titles="['流行', '新款', '精选']"
@@ -23,7 +23,7 @@
       <goods-list :goods="showGoods"/>
     </scroll>
 
-<!-- @click.native可监听组件的点击事件   -->
+<!-- @click.native可监听组件的点击事件  -->
     <back-top @click.native="backClick" v-show="backBtnIsShow"/>
   </div>
 </template>
@@ -95,6 +95,9 @@
       swiperImageLoad() {
         this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
       },
+      RecommendImageLoad() {
+        this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
+      },
       tabClick(index) {
         switch (index) {
           case 0:
@@ -115,7 +118,6 @@
       contentScroll(position) {
         this.backBtnIsShow = position.y < -2000
         this.isTabFixed = -position.y > this.tabOffsetTop
-        console.log(this.tabOffsetTop)
       },
       //上拉加载更多
       pullingUp() {

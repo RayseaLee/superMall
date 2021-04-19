@@ -175,7 +175,6 @@
     z-index: 11;
     background-color: #fff;
   }
-
   .content {
     overflow: hidden;
     height: calc(100% - 44px);

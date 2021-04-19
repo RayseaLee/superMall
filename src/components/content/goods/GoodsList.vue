@@ -1,6 +1,7 @@
 <template>
-  <div :items="goods" class="goods">
-    <goods-list-item v-for="goodsItem in goods" :goods-item="goodsItem"/>
+  <div class="goods">
+    <goods-list-item v-for="goodsItem in goods"
+                     :goods-item="goodsItem"/>
   </div>
 </template>
 
@@ -18,7 +19,13 @@
         default() {
           return []
         }
-      }
+      },
+      // backgroundColor: {
+      //   type: String,
+      //   default() {
+      //     return [];
+      //   }
+      // }
     }
   }
 </script>

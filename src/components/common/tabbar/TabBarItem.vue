@@ -22,7 +22,7 @@
       path: String,
       activeColor: {
         type: String,
-        default: 'hotpink'
+        default: '#ff5777'
       }
     },
     data() {
